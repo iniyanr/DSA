@@ -49,10 +49,17 @@
 #     return count_no_of_zeroes(n//10,count)
 # print(count_no_of_zeroes(-500,0))
 
-def check_palindrome(num, n=0):
-    n = n * 10 + num % 10
-    if num < 10:       # base case
-        return n
-    return check_palindrome(num // 10, n)
-
-print(-232 == check_palindrome(-232))
+# def rotated_binary_search(arr,target,low,high):
+#     mid=(low+high)//2
+#     if low>high:
+#         return -1
+#     if target==arr[mid]:
+#         return mid
+#     if arr[low]<=arr[mid]:
+#         if target>=arr[low] and target<=arr[mid]:
+#             return rotated_binary_search(arr,target,low,mid-1)
+#         else:
+#             return rotated_binary_search(arr,target,mid+1,high)
+#     if target>=arr[mid] and target<=arr[high]:
+#         return rotated_binary_search(arr,target,mid-1,high)
+    

@@ -17,6 +17,7 @@ def max_range(arr,a,b):
         if arr[i]>max_num:
             max_num=arr[i]
     return max_num
+
 arr=list(map(int,input("Enter the array : ").split())) 
 print("Maximum Number : ",maximum_number(arr))       
 a=int(input("Enter the starting range : "))
