@@ -34,6 +34,7 @@ class Binary_Tree:
     def pretty_display(self,node,level):
         if not node:
             return
+        self.pretty_display(node.right,level+1)
         if level != 0:
             for i in range(level-1):
                 print("|  ")
@@ -41,6 +42,7 @@ class Binary_Tree:
         else:
             print(node.data)
         self.pretty_display(node.left,level+1)
+        
 if __name__=="__main__":
     tree=Binary_Tree()
     tree.insert_elements()

@@ -31,6 +31,7 @@ class BST:
         
         node.height = max(self.get_height(node.left), self.get_height(node.right)) + 1
         return node
+    
     def is_balanced(self, node="__root__"):
         if node == "__root__":
             node = self.root
@@ -49,22 +50,28 @@ class BST:
 
         return self.is_balanced(node.left) and self.is_balanced(node.right)
 
-    
-    def display(self, node=None, indent=""):
+    def preorder(self,node):
         if node is None:
-            node = self.root
-            if node is None:
-                print("Tree is empty")
-                return
+            return
+        print(node.val,end="->")
+        self.preorder(node.left)
+        self.preorder(node.right)
 
-        print(indent + str(node.val))
-
-        if node.left:
-            self.display(node.left, indent + "L--> ")
-
-        if node.right:
-            self.display(node.right, indent + "R--> ")
-
+    def inorder(self,node):
+        if node is None:
+            return
+        self.inorder(node.left)
+        print(node.val,end="->")
+        self.inorder(node.right)
+    
+    def postorder(self,node):
+        if node is None:
+            return
+        self.postorder(node.left)
+        self.postorder(node.right)
+        print(node.val,end="->")
+    
+    
 b = BST()
 
 b.insert_root(10)
@@ -73,5 +80,13 @@ b.insert_root(15)
 b.insert_root(2)
 b.insert_root(7)
 
-b.display()
+print("Preorder :",end=" ")
+b.preorder(b.root)
+print()
+print("Inorder : ",end=" ")
+b.inorder(b.root)
+print()
+print("Postorder : ",end=" ")
+b.postorder(b.root)
+print()
 print("Tree is balanced :", b.is_balanced())
